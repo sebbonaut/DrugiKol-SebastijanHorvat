@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DrugiKolokvij</string>
+    <string name="pokreni_servis">pokreni servis</string>
+    <string name="zaustavi_servis">zaustavi servis</string>
+    <string name="sadrzajKorisnika">Sadrzaj Korisnika:</string>
+    <string name="sadrzajRadnihMjesta">Sadrzaj Radnih Mjesta:</string>
+</resources>
