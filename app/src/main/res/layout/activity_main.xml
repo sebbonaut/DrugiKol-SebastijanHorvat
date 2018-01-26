@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.example.sehorva.kolokvij.MainActivity">
+    android:layout_height="match_parent" tools:context="com.example.sehorva.drugikolokvij.MainActivity">
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:text="Hello World!" app:layout_constraintBottom_toBottomOf="parent"
@@ -27,22 +27,27 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editBaza1"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonBaza1"/>
+        android:id="@+id/najplaceniji"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editBaza2"/>
+        android:id="@+id/editBaza"
+        android:text="@string/brisanje"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonBaza2"/>
+        android:id="@+id/buttonBaza1"
+        android:text="@string/IDbrisanje1"
+        android:onClick="brisanjeZaposlenika"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonBaza2"
+        android:text="@string/IDbrisanje2"
+        android:onClick="brisanjeRadnogMjesta"/>
 
     <TextView
         android:layout_width="wrap_content"

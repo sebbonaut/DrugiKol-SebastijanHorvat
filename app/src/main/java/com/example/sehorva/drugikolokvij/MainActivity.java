@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,13 +20,15 @@ import java.net.URLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
+    DBAdapter db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        DBAdapter db = new DBAdapter(this);
+        db = new DBAdapter(this);
 
         //---donji kod je zakomentiran jer su oni vec dodani u bazu---
         //---dodavanje zaposlenika---
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         id_mjesta = db.insertIntoRadnoMjesto(2, 3400);
         db.close();*/
 
+        int najvecaPlaca = 0;
+        String najplaceniji =  "";
 
         //--dohvati sve zaposlenike---
         db.open();
@@ -54,9 +59,17 @@ public class MainActivity extends AppCompatActivity {
         {
             do {
                 DisplayZaposlenika(c);
+                if(c.getInt(3)>najvecaPlaca)
+                {
+                    najvecaPlaca = c.getInt(3);
+                    najplaceniji = c.getString(1);
+                }
             } while (c.moveToNext());
         }
         db.close();
+
+        EditText myText = (EditText) this.findViewById(R.id.najplaceniji);
+        myText.setText( "Najvisu placu ima: " + najplaceniji );
 
         //--dohvati sva radna mjesta---
         db.open();
@@ -107,15 +120,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Update failed.", Toast.LENGTH_LONG).show();
         db.close();*/
 
-
-
-        //---obrisi zaposlenika---
-        /*db.open();
-        if (db.deleteZaposlenik(1))
-            Toast.makeText(this, "Delete successful.", Toast.LENGTH_LONG).show();
-        else
-            Toast.makeText(this, "Delete failed.", Toast.LENGTH_LONG).show();
-        db.close();
+        /*
 
         //---obrisi radno mjesto---
         db.open();
@@ -158,5 +163,35 @@ public class MainActivity extends AppCompatActivity {
 
     public void stopService(View view) {
         stopService(new Intent(getBaseContext(), MyService.class));
+    }
+
+    public void brisanjeZaposlenika()
+    {
+        /*EditText editText = (EditText) findViewById(R.id.editBaza);
+        int value = Integer.parseInt(editText.getText().toString());
+
+
+        //---obrisi zaposlenika---
+        db.open();
+        if (db.deleteZaposlenik(value))
+            Toast.makeText(this, "Delete successful.", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Delete failed.", Toast.LENGTH_LONG).show();
+        db.close();*/
+
+    }
+
+    public void brisanjeRadnogMjesta()
+    {
+        /*EditText editText = (EditText) findViewById(R.id.editBaza);
+        int value = Integer.parseInt(editText.getText().toString());
+
+        //---obrisi radno mjesto---
+        db.open();
+        if (db.deleteRadnoMjesto(value))
+            Toast.makeText(this, "Delete successful.", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Delete failed.", Toast.LENGTH_LONG).show();
+        db.close();*/
     }
 }

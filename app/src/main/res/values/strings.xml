@@ -4,4 +4,7 @@
     <string name="zaustavi_servis">zaustavi servis</string>
     <string name="sadrzajKorisnika">Sadrzaj Korisnika:</string>
     <string name="sadrzajRadnihMjesta">Sadrzaj Radnih Mjesta:</string>
+    <string name="brisanje">ID za brisanje</string>
+    <string name="IDbrisanje1">brisi iz zaposlenika</string>
+    <string name="IDbrisanje2">brisi iz RMjesta</string>
 </resources>
